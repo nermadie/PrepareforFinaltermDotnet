@@ -60,7 +60,7 @@ namespace BTCK.Views
         {
             if (dataGridViewQLSP.SelectedRows.Count > 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Bạn có muốn xoá (những) sinh viên này không?", "Delete Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult dialogResult = MessageBox.Show("Bạn có muốn xoá (những) sản phẩm này không?", "Delete Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.OK)
                 {
                     List<string> id = new List<string>();
