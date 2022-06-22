@@ -64,24 +64,24 @@
     <Compile Include="DTO\SanPhamView.cs" />
     <Compile Include="Model\CreateDB.cs" />
     <Compile Include="Model\QLSP.cs" />
-    <Compile Include="Views\DetailForm.cs">
+    <Compile Include="GUI\DetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\DetailForm.Designer.cs">
+    <Compile Include="GUI\DetailForm.Designer.cs">
       <DependentUpon>DetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainForm.cs">
+    <Compile Include="GUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\MainForm.Designer.cs">
+    <Compile Include="GUI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Views\DetailForm.resx">
+    <EmbeddedResource Include="GUI\DetailForm.resx">
       <DependentUpon>DetailForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\MainForm.resx">
+    <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

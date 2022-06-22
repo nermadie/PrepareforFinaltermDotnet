@@ -16,8 +16,8 @@ namespace BTCK.Views
     {
         public delegate void MyDel();
         public MyDel d { get; set; }
-        public string MSSP { get; set; }
-        public DetailForm(string idSanPham)
+        public string MSSP { get; set; }//Add : MSSP="", Edit = "0000xx"
+        public DetailForm(string idSanPham)//constructor
         {
             InitializeComponent();
             MSSP = idSanPham;
@@ -84,7 +84,7 @@ namespace BTCK.Views
                     _NgayNhap = Convert.ToDateTime(dateTimePickerNNH.Value),
                     _IDNCC = ((CBBItemNCC)comboBoxNCC.SelectedItem).Value
                 };
-                BLLQLSP.Instance.Add_UpdateSV(s);
+                BLLQLSP.Instance.Add_UpdateSP(s);
                 d();
                 this.Close();
             }

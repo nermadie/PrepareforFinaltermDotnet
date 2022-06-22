@@ -117,7 +117,7 @@ namespace BTCK.BLL
             return sp;
         }
 
-        public void Add_UpdateSV(SanPham s)
+        public void Add_UpdateSP(SanPham s)
         {
             SanPham temp = db.SanPhams.Find(s._IDSP);
             if (temp == null)

@@ -38,11 +38,26 @@ namespace BTCK.Views
             dataGridViewQLSP.Columns[5].HeaderCell.Value = "Nhà cung cấp";
             dataGridViewQLSP.Columns[6].HeaderCell.Value = "Tỉnh/TP";
         }
+
+        //private void changeStateButton()
+        //{
+        //    if (buttonAdd.Enabled == true)
+        //    {
+        //        buttonAdd.Enabled = false;
+        //        buttonDel.Enabled = false;
+        //        buttonEdit.Enabled = false;
+        //    }
+        //    else
+        //    {
+        //        buttonAdd.EndInvoke
+        //    }
+        //}
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             DetailForm f = new DetailForm("");
-            f.d = new DetailForm.MyDel(ShowData);
+            f.d = new DetailForm.MyDel(ShowData);//delegate
             f.Show();
+            //changeStateButton();
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -51,8 +66,9 @@ namespace BTCK.Views
             {
                 string MSSP = dataGridViewQLSP.SelectedRows[0].Cells[0].Value.ToString();
                 DetailForm f = new DetailForm(MSSP);
-                f.d = new DetailForm.MyDel(ShowData);
+                f.d = new DetailForm.MyDel(ShowData);//delegate
                 f.Show();
+                //disableButton();
             }
         }
 
@@ -76,12 +92,12 @@ namespace BTCK.Views
 
         private void buttonSort_Click(object sender, EventArgs e)
         {
-            List<string> now = new List<string>();
+            List<string> id = new List<string>();
             foreach (DataGridViewRow i in dataGridViewQLSP.Rows)
             {
-                now.Add(i.Cells[0].Value.ToString());
+                id.Add(i.Cells[0].Value.ToString());
             }
-            dataGridViewQLSP.DataSource = BLLQLSP.Instance.Sort(now, comboBoxSort.Text);
+            dataGridViewQLSP.DataSource = BLLQLSP.Instance.Sort(id, comboBoxSort.Text);
         }
 
         private void comboBoxTinhTP_SelectedIndexChanged(object sender, EventArgs e)

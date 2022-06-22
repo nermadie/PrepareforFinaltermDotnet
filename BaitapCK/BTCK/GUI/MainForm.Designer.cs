@@ -148,7 +148,7 @@
             // 
             this.buttonDel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonDel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDel.Location = new System.Drawing.Point(440, 449);
+            this.buttonDel.Location = new System.Drawing.Point(440, 448);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(106, 31);
             this.buttonDel.TabIndex = 6;
