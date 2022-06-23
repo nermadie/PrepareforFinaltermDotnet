@@ -1,4 +1,4 @@
-﻿namespace BTCK.Views
+﻿namespace BTCK.GUI
 {
     partial class MainForm
     {
@@ -165,7 +165,7 @@
             this.comboBoxNCC.Name = "comboBoxNCC";
             this.comboBoxNCC.Size = new System.Drawing.Size(222, 29);
             this.comboBoxNCC.TabIndex = 1;
-            this.comboBoxNCC.SelectedIndexChanged += new System.EventHandler(this.comboBoxNCC_SelectedIndexChanged);
+            this.comboBoxNCC.TextChanged += new System.EventHandler(this.comboBoxNCC_TextChanged);
             // 
             // labelTinhTP
             // 

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{56F2E9DA-B483-46BF-8227-26E8093CAC79}</ProjectGuid>
+    <ProjectGuid>{AB900254-B5A3-417C-898A-5DBBC18F5F89}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>BTCK</RootNamespace>
-    <AssemblyName>BTCK</AssemblyName>
+    <RootNamespace>_102200311_TranNhatMinh</RootNamespace>
+    <AssemblyName>102200311_TranNhatMinh</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -55,15 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\BLLQLSP.cs" />
-    <Compile Include="DTO\CBBItemNCC.cs" />
-    <Compile Include="DTO\CBBItemTinhTP.cs" />
-    <Compile Include="DTO\DiaChi.cs" />
-    <Compile Include="DTO\NhaCungCap.cs" />
-    <Compile Include="DTO\SanPham.cs" />
-    <Compile Include="DTO\SanPhamView.cs" />
+    <Compile Include="BLL\BLLQLSV.cs" />
+    <Compile Include="DTO\CBBItemHP.cs" />
+    <Compile Include="DTO\HocPhan.cs" />
+    <Compile Include="DTO\SinhVien.cs" />
+    <Compile Include="DTO\SV_View.cs" />
     <Compile Include="EntityFramework\CreateDB.cs" />
-    <Compile Include="EntityFramework\QLSP.cs" />
+    <Compile Include="EntityFramework\QLSV.cs" />
     <Compile Include="GUI\DetailForm.cs">
       <SubType>Form</SubType>
     </Compile>

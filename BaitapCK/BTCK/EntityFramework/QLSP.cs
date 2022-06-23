@@ -3,7 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using BTCK.DTO;
 
-namespace BTCK.Model
+namespace BTCK.EntityFramework
 {
     public class QLSP : DbContext
     {

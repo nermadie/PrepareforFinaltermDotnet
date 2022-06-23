@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BTCK.DTO;
-using BTCK.Model;
+using BTCK.EntityFramework;
 
 namespace BTCK.BLL
 {

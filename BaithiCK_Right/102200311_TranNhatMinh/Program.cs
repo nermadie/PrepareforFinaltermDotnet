@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BTCK.GUI;
+using _102200311_TranNhatMinh.GUI;
 
-namespace BTCK
+namespace _102200311_TranNhatMinh
 {
     internal static class Program
     {

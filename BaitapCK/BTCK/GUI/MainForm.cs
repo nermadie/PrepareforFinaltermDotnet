@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BTCK.BLL;
 using BTCK.DTO;
-using BTCK.Model;
+using BTCK.EntityFramework;
 
-namespace BTCK.Views
+namespace BTCK.GUI
 {
     public partial class MainForm : Form
     {
@@ -20,44 +20,53 @@ namespace BTCK.Views
             InitializeComponent();
             QLSP db = new QLSP();
             comboBoxTinhTP.Items.AddRange(BLLQLSP.Instance.GetCBBTinhTP().ToArray());
-            comboBoxTinhTP.SelectedIndex = 0;
+            if (comboBoxTinhTP.Items.Count > 0)
+                comboBoxTinhTP.SelectedIndex = 0;
+            else comboBoxNCC.Text = "";
             ShowData();
         }
         private void ShowData()
         {
-            int ID_NCC = 0;
-            if (comboBoxNCC.SelectedIndex >= 0)
-                ID_NCC = ((CBBItemNCC)comboBoxNCC.SelectedItem).Value;
-            dataGridViewQLSP.DataSource = BLLQLSP.Instance.GetSPViewByIDNCC(ID_NCC);
-            dataGridViewQLSP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewQLSP.Columns[0].HeaderCell.Value = "Mã sản phẩm";
-            dataGridViewQLSP.Columns[1].HeaderCell.Value = "Tên sản phẩm";
-            dataGridViewQLSP.Columns[2].HeaderCell.Value = "Giá nhập";
-            dataGridViewQLSP.Columns[3].HeaderCell.Value = "Ngày nhập hàng";
-            dataGridViewQLSP.Columns[4].HeaderCell.Value = "Tình trạng";
-            dataGridViewQLSP.Columns[5].HeaderCell.Value = "Nhà cung cấp";
-            dataGridViewQLSP.Columns[6].HeaderCell.Value = "Tỉnh/TP";
+            if (comboBoxNCC.Text != "")
+            {
+                int ID_NCC = 0;
+                if (comboBoxNCC.SelectedIndex >= 0)
+                    ID_NCC = ((CBBItemNCC)comboBoxNCC.SelectedItem).Value;
+                dataGridViewQLSP.DataSource = BLLQLSP.Instance.GetSPViewByIDNCC(ID_NCC);
+                dataGridViewQLSP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridViewQLSP.Columns[0].HeaderCell.Value = "Mã sản phẩm";
+                dataGridViewQLSP.Columns[1].HeaderCell.Value = "Tên sản phẩm";
+                dataGridViewQLSP.Columns[2].HeaderCell.Value = "Giá nhập";
+                dataGridViewQLSP.Columns[3].HeaderCell.Value = "Ngày nhập hàng";
+                dataGridViewQLSP.Columns[4].HeaderCell.Value = "Tình trạng";
+                dataGridViewQLSP.Columns[5].HeaderCell.Value = "Nhà cung cấp";
+                dataGridViewQLSP.Columns[6].HeaderCell.Value = "Tỉnh/TP";
+            }
+            else dataGridViewQLSP.DataSource = null;
         }
 
-        //private void changeStateButton()
-        //{
-        //    if (buttonAdd.Enabled == true)
-        //    {
-        //        buttonAdd.Enabled = false;
-        //        buttonDel.Enabled = false;
-        //        buttonEdit.Enabled = false;
-        //    }
-        //    else
-        //    {
-        //        buttonAdd.EndInvoke
-        //    }
-        //}
+        private void changeStateButton()
+        {
+            if (buttonAdd.Enabled == true)
+            {
+                buttonAdd.Enabled = false;
+                buttonDel.Enabled = false;
+                buttonEdit.Enabled = false;
+            }
+            else
+            {
+                buttonAdd.Enabled = true;
+                buttonDel.Enabled = true;
+                buttonEdit.Enabled = true;
+            }
+        }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             DetailForm f = new DetailForm("");
-            f.d = new DetailForm.MyDel(ShowData);//delegate
+            f.delOK = ShowData;//delegate
+            f.delChangeButtonState = changeStateButton;
             f.Show();
-            //changeStateButton();
+            changeStateButton();
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -66,9 +75,10 @@ namespace BTCK.Views
             {
                 string MSSP = dataGridViewQLSP.SelectedRows[0].Cells[0].Value.ToString();
                 DetailForm f = new DetailForm(MSSP);
-                f.d = new DetailForm.MyDel(ShowData);//delegate
+                f.delOK = ShowData;//delegate
+                f.delChangeButtonState = changeStateButton;
                 f.Show();
-                //disableButton();
+                changeStateButton();
             }
         }
 
@@ -104,10 +114,12 @@ namespace BTCK.Views
         {
             comboBoxNCC.Items.Clear();
             comboBoxNCC.Items.AddRange(BLLQLSP.Instance.GetCBBNCCByIDTinhTP(comboBoxTinhTP.Text).ToArray());
-            comboBoxNCC.SelectedIndex = 0;
+            if (comboBoxNCC.Items.Count > 0)
+                comboBoxNCC.SelectedIndex = 0;
+            else comboBoxNCC.Text = "";
         }
 
-        private void comboBoxNCC_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxNCC_TextChanged(object sender, EventArgs e)
         {
             ShowData();
         }

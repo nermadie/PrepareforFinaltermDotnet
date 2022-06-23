@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BTCK.DTO;
 
-namespace BTCK.Model
+namespace BTCK.EntityFramework
 {
     public class CreateDB : DropCreateDatabaseIfModelChanges<QLSP>//DropCreateDatabaseAlways<QLSP>
 
@@ -22,7 +22,6 @@ namespace BTCK.Model
                 new SanPham{_IDSP = "000004", _NameSP = "Oto Mazda", _GiaNhap = 30.0f, _NgayNhap = new DateTime(2022,10,22),_SoLuong = 21, _IDNCC = 4},
                 new SanPham{_IDSP = "000005", _NameSP = "Oto Mitsubishi", _GiaNhap = 30.0f, _NgayNhap = new DateTime(2022,10,22),_SoLuong = 0, _IDNCC = 4},
                 new SanPham{_IDSP = "000006", _NameSP = "Oto Suzuki", _GiaNhap = 30.0f, _NgayNhap = new DateTime(2022,10,22),_SoLuong = 0, _IDNCC = 3},
-                new SanPham{_IDSP = "000007", _NameSP = "Oto abc", _GiaNhap = 30.0f, _NgayNhap = new DateTime(2022,10,22),_SoLuong = 0, _IDNCC = 5},
 
             });
             context.NhaCungCaps.AddRange(new[]
@@ -31,8 +30,7 @@ namespace BTCK.Model
                 new NhaCungCap{_IDNCC = 2, _NameNCC = "Ha Long", _IDTinhTP = "02"},
                 new NhaCungCap{_IDNCC = 3, _NameNCC = "Long Bien", _IDTinhTP = "03"},
                 new NhaCungCap{_IDNCC = 4, _NameNCC = "Chien Thang", _IDTinhTP = "04"},
-                new NhaCungCap{_IDNCC = 5, _NameNCC = "Tien Thu", _IDTinhTP = "05"},
-                new NhaCungCap{_IDNCC = 6, _NameNCC = "NSX A", _IDTinhTP = "01"},
+                //new NhaCungCap{_IDNCC = 5, _NameNCC = "Tien Thu", _IDTinhTP = "05"},
 
 
             });

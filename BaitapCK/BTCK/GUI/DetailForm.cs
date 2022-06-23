@@ -10,12 +10,13 @@ using System.Windows.Forms;
 using BTCK.BLL;
 using BTCK.DTO;
 
-namespace BTCK.Views
+namespace BTCK.GUI
 {
     public partial class DetailForm : Form
     {
         public delegate void MyDel();
-        public MyDel d { get; set; }
+        public MyDel delOK { get; set; }
+        public MyDel delChangeButtonState { get; set; }
         public string MSSP { get; set; }//Add : MSSP="", Edit = "0000xx"
         public DetailForm(string idSanPham)//constructor
         {
@@ -85,11 +86,11 @@ namespace BTCK.Views
                     _IDNCC = ((CBBItemNCC)comboBoxNCC.SelectedItem).Value
                 };
                 BLLQLSP.Instance.Add_UpdateSP(s);
-                d();
+                delOK();
                 this.Close();
             }
             else
-                MessageBox.Show("Có các trường sau còn thiếu hoặc chưa đúng định dạng:\n" + temp, "Warning!");
+                MessageBox.Show("Có các trường sau còn thiếu hoặc chưa đúng định dạng:\n" + temp, "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -101,7 +102,9 @@ namespace BTCK.Views
         {
             comboBoxNCC.Items.Clear();
             comboBoxNCC.Items.AddRange(BLLQLSP.Instance.GetCBBNCCByIDTinhTP(comboBoxTinhTP.Text, false).ToArray());
-            comboBoxNCC.SelectedIndex = 0;
+            if (comboBoxNCC.Items.Count > 0)
+                comboBoxNCC.SelectedIndex = 0;
+            else comboBoxNCC.Text = "";
         }
     }
 }

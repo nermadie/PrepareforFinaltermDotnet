@@ -22,7 +22,6 @@ namespace BTCK.DTO
         public string _IDTinhTP { get; set; }
         [ForeignKey("_IDTinhTP")]
         public DiaChi DiaChi { get; set; }
-
         public ICollection<SanPham> SanPhams { get; set; }
     }
 }
